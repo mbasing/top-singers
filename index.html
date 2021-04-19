@@ -27,25 +27,30 @@
   </head>
 
   <body ng-controller="SingerController">
-      
     <div class="top-area">
-      <span class="top-size">See the</span>
-      <button ng-click="MaleOrFemale='male'">Male</button>
-      <button ng-click="MaleOrFemale='female'">Female</button>
-      <span class="top-size">Singers</span>
+      <div style="display: flex; flex-wrap: nowrap">
+        <span class="top-size">See the</span>
+        <button id="male" ng-click="MaleOrFemale='male'">Male</button>
+      </div>
+      <div style="display: flex; flex-wrap: nowrap"> &
+        <button id="female" ng-click="MaleOrFemale='female'">Female</button>
+        <span class="top-size">Singers</span>
+      </div>
     </div>
 
-    <table class="singer-table">
-      <tr ng-repeat="singer in singers" ng-if="singer.gender == MaleOrFemale">
-        <td>
-          <img class="singer-pic" src="{{singer.pic}}" alt="" />
-        </td>
-        <td class="name-size">{{singer.name}}</td>
-        <td>
-          <img class="quality-icon" src="{{singer.quality}}" alt="" />
-        </td>
-      </tr>
-    </table>
+    <div id="table">
+      <table class="singer-table">
+        <tr ng-repeat="singer in singers" ng-if="singer.gender == MaleOrFemale">
+          <td>
+            <img class="singer-pic" src="{{singer.pic}}" alt="" />
+          </td>
+          <td class="name-size">{{singer.name}}</td>
+          <td>
+            <img class="quality-icon" src="{{singer.quality}}" alt="" />
+          </td>
+        </tr>
+      </table>
+    </div>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"
